@@ -1,0 +1,112 @@
+.app {
+  min-height: 100vh;
+  padding: 48px;
+  background: radial-gradient(circle at top, #2d1b4e, #09070f 55%);
+  color: white;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.hero-section {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 48px;
+}
+
+.eyebrow {
+  color: #f6c177;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 64px;
+  margin: 12px 0;
+}
+
+.subtitle {
+  color: #d7d1e8;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.actor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.actor-card {
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  padding: 28px;
+  cursor: pointer;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+}
+
+.actor-avatar {
+  height: 92px;
+  width: 92px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #f6c177, #eb6f92);
+  color: #211527;
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.actor-card h2 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.actor-card p {
+  color: #ccc3dc;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0;
+}
+
+.tags span {
+  background: rgba(246, 193, 119, 0.18);
+  color: #f6c177;
+  border: 1px solid rgba(246, 193, 119, 0.3);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+button {
+  border: none;
+  background: #f6c177;
+  color: #211527;
+  font-weight: 800;
+  padding: 12px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.selected-panel {
+  max-width: 800px;
+  margin: 44px auto 0;
+  background: rgba(255, 255, 255, 0.08);
+  border-left: 5px solid #f6c177;
+  border-radius: 20px;
+  padding: 28px;
+}
+
+.quote {
+  font-size: 22px;
+  color: #f6c177;
+}
