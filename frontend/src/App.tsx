@@ -9,6 +9,7 @@ type Actor = {
   greeting: string;
   dialogue: string;
   known_for: string[];
+  featured_movies: string[];
 };
 
 function App() {
@@ -75,12 +76,19 @@ function App() {
       </section>
 
       {selectedActor && (
-        <section className="selected-panel">
-          <h2>{selectedActor.name}</h2>
-          <p className="quote">“{selectedActor.dialogue}”</p>
-          <p>{selectedActor.greeting}</p>
-        </section>
-      )}
+  <section className="selected-panel">
+    <h2>{selectedActor.name}</h2>
+    <p className="quote">“{selectedActor.dialogue}”</p>
+    <p>{selectedActor.greeting}</p>
+
+    <h3>Featured Movies</h3>
+    <div className="movie-list">
+      {selectedActor.featured_movies.map((movie) => (
+        <span key={movie}>{movie}</span>
+      ))}
+    </div>
+  </section>
+)}
     </main>
   );
 }

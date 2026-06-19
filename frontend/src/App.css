@@ -110,3 +110,23 @@ button {
   font-size: 22px;
   color: #f6c177;
 }
+
+.selected-panel h3 {
+  margin-top: 24px;
+  color: #ffffff;
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.movie-list span {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
