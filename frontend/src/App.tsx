@@ -10,6 +10,7 @@ type Actor = {
   dialogue: string;
   known_for: string[];
   featured_movies: string[];
+  image_url: string;
 };
 
 function App() {
@@ -77,12 +78,18 @@ function App() {
             whileTap={{ scale: 0.97 }}
             onClick={() => speakGreeting(actor)}
           >
-            <div className="actor-avatar">
-              {actor.name
-                .split(" ")
-                .map((word) => word[0])
-                .join("")}
-            </div>
+            <div className="actor-image">
+  {actor.image_url ? (
+    <img src={actor.image_url} alt={actor.name} />
+  ) : (
+    <div className="actor-avatar">
+      {actor.name
+        .split(" ")
+        .map((word) => word[0])
+        .join("")}
+    </div>
+  )}
+</div>
 
             <h2>{actor.name}</h2>
             <p>{actor.industry}</p>

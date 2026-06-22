@@ -49,17 +49,31 @@ h1 {
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
 }
 
-.actor-avatar {
-  height: 92px;
-  width: 92px;
+.actor-image {
+  height: 140px;
+  width: 140px;
   border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #f6c177, #eb6f92);
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, #f6c177, #eb6f92);
+}
+
+.actor-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.actor-avatar {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
   color: #211527;
-  font-size: 30px;
+  font-size: 38px;
   font-weight: 900;
-  margin-bottom: 20px;
 }
 
 .actor-card h2 {
