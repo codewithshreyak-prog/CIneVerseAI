@@ -15,6 +15,7 @@ type Actor = {
 function App() {
   const [actors, setActors] = useState<Actor[]>([]);
   const [selectedActor, setSelectedActor] = useState<Actor | null>(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     fetch("http://127.0.0.1:8000/actors")
@@ -22,6 +23,19 @@ function App() {
       .then((data) => setActors(data))
       .catch((error) => console.error("Error fetching actors:", error));
   }, []);
+
+  const filteredActors = actors.filter((actor) => {
+    const searchText = searchTerm.toLowerCase();
+
+    return (
+      actor.name.toLowerCase().includes(searchText) ||
+      actor.industry.toLowerCase().includes(searchText) ||
+      actor.known_for.some((tag) => tag.toLowerCase().includes(searchText)) ||
+      actor.featured_movies.some((movie) =>
+        movie.toLowerCase().includes(searchText)
+      )
+    );
+  });
 
   const speakGreeting = (actor: Actor) => {
     setSelectedActor(actor);
@@ -45,8 +59,17 @@ function App() {
         </p>
       </section>
 
+      <section className="search-section">
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={(event) => setSearchTerm(event.target.value)}
+          placeholder="Search heroes by name, genre, industry, or movie..."
+        />
+      </section>
+
       <section className="actor-grid">
-        {actors.map((actor) => (
+        {filteredActors.map((actor) => (
           <motion.div
             key={actor.id}
             className="actor-card"
@@ -76,19 +99,19 @@ function App() {
       </section>
 
       {selectedActor && (
-  <section className="selected-panel">
-    <h2>{selectedActor.name}</h2>
-    <p className="quote">“{selectedActor.dialogue}”</p>
-    <p>{selectedActor.greeting}</p>
+        <section className="selected-panel">
+          <h2>{selectedActor.name}</h2>
+          <p className="quote">“{selectedActor.dialogue}”</p>
+          <p>{selectedActor.greeting}</p>
 
-    <h3>Featured Movies</h3>
-    <div className="movie-list">
-      {selectedActor.featured_movies.map((movie) => (
-        <span key={movie}>{movie}</span>
-      ))}
-    </div>
-  </section>
-)}
+          <h3>Featured Movies</h3>
+          <div className="movie-list">
+            {selectedActor.featured_movies.map((movie) => (
+              <span key={movie}>{movie}</span>
+            ))}
+          </div>
+        </section>
+      )}
     </main>
   );
 }
